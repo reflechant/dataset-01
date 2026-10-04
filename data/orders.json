@@ -1,0 +1,177 @@
+[
+  {
+    "id": "ORD-18472",
+    "placedAt": "2026-03-11T14:22:08Z",
+    "status": "shipped",
+    "channel": "web",
+    "currency": "USD",
+    "subtotal": 184.50,
+    "tax": 14.76,
+    "shippingCost": 8.00,
+    "total": 207.26,
+    "itemCount": 3,
+    "customer": {
+      "id": "CUS-9021",
+      "name": "Mara Ellison",
+      "email": "mara.ellison@northline.co",
+      "loyaltyTier": "silver"
+    },
+    "shippingAddress": {
+      "line1": "418 Willow Creek Rd",
+      "city": "Portland",
+      "region": "OR",
+      "postalCode": "97214",
+      "country": "US"
+    },
+    "items": [
+      {"sku": "MUG-12", "name": "Stoneware mug", "qty": 2, "unitPrice": 22.00},
+      {"sku": "TEA-04", "name": "Assam loose leaf 100g", "qty": 1, "unitPrice": 14.50},
+      {"sku": "KET-08", "name": "Gooseneck kettle", "qty": 1, "unitPrice": 126.00}
+    ],
+    "payment": {
+      "method": "card",
+      "last4": "4412",
+      "authorized": true
+    },
+    "notes": "Leave at side door if no answer."
+  },
+  {
+    "id": "ORD-18473",
+    "placedAt": "2026-03-11T15:01:44Z",
+    "status": "processing",
+    "channel": "mobile",
+    "currency": "USD",
+    "subtotal": 62.00,
+    "tax": 4.96,
+    "shippingCost": 0.00,
+    "total": 66.96,
+    "itemCount": 2,
+    "customer": {
+      "id": "CUS-4418",
+      "name": "Jonah Reyes",
+      "email": "j.reyes@mail.example",
+      "loyaltyTier": "bronze"
+    },
+    "shippingAddress": {
+      "line1": "90 Harbor Ave Apt 6B",
+      "city": "Boston",
+      "region": "MA",
+      "postalCode": "02110",
+      "country": "US"
+    },
+    "items": [
+      {"sku": "SOAP-02", "name": "Cedar bar soap 3-pack", "qty": 1, "unitPrice": 18.00},
+      {"sku": "TOW-11", "name": "Linen hand towel", "qty": 2, "unitPrice": 22.00}
+    ],
+    "payment": {
+      "method": "paypal",
+      "last4": null,
+      "authorized": true
+    },
+    "notes": null
+  },
+  {
+    "id": "ORD-18474",
+    "placedAt": "2026-03-12T09:17:02Z",
+    "status": "cancelled",
+    "channel": "web",
+    "currency": "EUR",
+    "subtotal": 310.00,
+    "tax": 62.00,
+    "shippingCost": 12.50,
+    "total": 384.50,
+    "itemCount": 1,
+    "customer": {
+      "id": "CUS-1102",
+      "name": "Léa Moreau",
+      "email": "lea.moreau@atelier.fr",
+      "loyaltyTier": "gold"
+    },
+    "shippingAddress": {
+      "line1": "12 Rue des Archives",
+      "city": "Paris",
+      "region": "IDF",
+      "postalCode": "75004",
+      "country": "FR"
+    },
+    "items": [
+      {"sku": "LMP-03", "name": "Brass desk lamp", "qty": 1, "unitPrice": 310.00}
+    ],
+    "payment": {
+      "method": "card",
+      "last4": "8891",
+      "authorized": false
+    },
+    "notes": "Customer cancelled after stock delay."
+  },
+  {
+    "id": "ORD-18475",
+    "placedAt": "2026-03-12T11:44:19Z",
+    "status": "delivered",
+    "channel": "store",
+    "currency": "USD",
+    "subtotal": 47.25,
+    "tax": 3.78,
+    "shippingCost": 0.00,
+    "total": 51.03,
+    "itemCount": 4,
+    "customer": {
+      "id": "CUS-7780",
+      "name": "Priya Shah",
+      "email": "priya.shah@civic.org",
+      "loyaltyTier": "silver"
+    },
+    "shippingAddress": {
+      "line1": "2200 Oakmont Blvd",
+      "city": "Austin",
+      "region": "TX",
+      "postalCode": "78704",
+      "country": "US"
+    },
+    "items": [
+      {"sku": "NBK-01", "name": "A5 dotted notebook", "qty": 3, "unitPrice": 9.75},
+      {"sku": "PEN-09", "name": "Gel pen black", "qty": 1, "unitPrice": 18.00}
+    ],
+    "payment": {
+      "method": "cash",
+      "last4": null,
+      "authorized": true
+    },
+    "notes": "In-store pickup, already collected."
+  },
+  {
+    "id": "ORD-18476",
+    "placedAt": "2026-03-13T08:05:33Z",
+    "status": "shipped",
+    "channel": "web",
+    "currency": "GBP",
+    "subtotal": 129.00,
+    "tax": 25.80,
+    "shippingCost": 4.95,
+    "total": 159.75,
+    "itemCount": 2,
+    "customer": {
+      "id": "CUS-3309",
+      "name": "Owen Clarke",
+      "email": "owen.clarke@north.example",
+      "loyaltyTier": "bronze"
+    },
+    "shippingAddress": {
+      "line1": "7 Canal Walk",
+      "city": "Manchester",
+      "region": "ENG",
+      "postalCode": "M1 3EZ",
+      "country": "GB"
+    },
+    "items": [
+      {"sku": "BAG-21", "name": "Canvas tote", "qty": 1, "unitPrice": 34.00},
+      {"sku": "JKT-15", "name": "Waxed field jacket", "qty": 1, "unitPrice": 95.00}
+    ],
+    "payment": {
+      "method": "card",
+      "last4": "1027",
+      "authorized": true
+    },
+    "notes": "Gift wrap the jacket."
+  }
+]

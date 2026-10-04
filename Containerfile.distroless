@@ -1,0 +1,11 @@
+ARG UBERJAR_PATH
+FROM ghcr.io/graalvm/native-image-community:21 AS native-builder
+WORKDIR /app
+ARG UBERJAR_PATH
+COPY ${UBERJAR_PATH} app.jar
+RUN native-image --initialize-at-build-time -jar app.jar -H:Name=dataset-01 --no-fallback
+
+FROM gcr.io/distroless/base-debian12
+COPY --from=native-builder /lib64/libz.so.1* /lib/x86_64-linux-gnu/
+COPY --from=native-builder /app/dataset-01 /dataset-01
+ENTRYPOINT ["/dataset-01"]

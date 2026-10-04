@@ -1,0 +1,26 @@
+.calva/
+.clj-kondo/
+.lsp/
+.classpath
+.cpcache
+.java-version
+.nrepl-history
+.nrepl-port
+.portal/vs-code.edn
+.project
+.rebel_readline_history
+.settings
+.socket-repl-port
+.sw*
+.vscode
+*.class
+*.jar
+*.swp
+*~
+/checkouts
+/classes
+/target
+native-image
+
+# Emacs backup files
+\#*\#
