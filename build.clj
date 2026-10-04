@@ -2,9 +2,9 @@
   (:refer-clojure :exclude [test])
   (:require [clojure.tools.build.api :as b]))
 
-(def lib 'lionrouge/dataset-01)
+(def lib 'reflechant/dataset-01)
 (def version "0.1.0-SNAPSHOT")
-(def main 'lionrouge.dataset-01)
+(def main 'reflechant.dataset-01)
 (def class-dir "target/classes")
 
 (defn- exec [cmds error-msg]

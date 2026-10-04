@@ -41,7 +41,7 @@ clojure -T:build build-uber
 clojure -T:build ci
 
 # Execute the jar:
-java -jar target/lionrouge/dataset-01-0.1.0-SNAPSHOT.jar data/orders.json
+java -jar target/reflechant/dataset-01-0.1.0-SNAPSHOT.jar data/orders.json
 ```
 
 ## 2. Building and Running the Small Native Binary
