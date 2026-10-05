@@ -8,7 +8,8 @@
 
 (comment
   (ds/->>dataset "data/orders.json")
-  )
+  (ds/->dataset "data/orders.json")
+  (ds/row-count (ds/->dataset "data/orders.json")))
 
 
 ; (clojure.repl.deps/sync-deps)

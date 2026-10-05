@@ -95,3 +95,47 @@
   (let [opts (build-uber opts)]
     (build-container opts "Containerfile.distroless" "dataset-01-distroless")
     opts))
+
+(defn desktop-uber "Build the desktop uberjar." [opts]
+  (clean opts)
+  (let [opts (assoc opts
+                    :lib lib
+                    :main 'reflechant.desktop
+                    :uber-file "target/dataset-01-desktop.jar"
+                    :basis (b/create-basis {:aliases [:native-desktop]})
+                    :class-dir class-dir
+                    :src-dirs ["src"]
+                    :ns-compile ['reflechant.desktop])]
+    (println "\nCopying source...")
+    (b/copy-dir {:src-dirs ["resources"] :target-dir class-dir})
+    (println "\nCompiling reflechant.desktop...")
+    (b/compile-clj opts)
+    (println "\nBuilding JAR..." (:uber-file opts))
+    (b/uber opts)
+    opts))
+
+(defn native-desktop "Build a desktop standalone native binary using Liberica NIK 23.1 Full." [opts]
+  (let [nik-home (System/getenv "LIBERICA_NIK_HOME")]
+    (when (or (nil? nik-home) (empty? nik-home))
+      (throw (ex-info "LIBERICA_NIK_HOME is not set. Desktop native images need Liberica NIK 23.1 Full for JDK 21, per OS. Do not use GraalVM 25 or the static musl build. NIK 25 JavaFX fails on Windows with UnsatisfiedLinkError JNI version 0x10002 (bell-sw/LibericaNIK#37)." {})))
+    (let [java-bin (str nik-home "/bin/java")
+          proc (.. (ProcessBuilder. [java-bin "-version"]) (redirectErrorStream true) start)
+          output (slurp (.getInputStream proc))
+          exit (.waitFor proc)]
+      (when-not (and (zero? exit)
+                     (.contains output "Liberica-NIK")
+                     (.contains output "21"))
+        (throw (ex-info "LIBERICA_NIK_HOME is not Liberica NIK 23.1 / JDK 21" {}))))
+    (let [opts (desktop-uber opts)]
+      (println "\nBuilding desktop native image...")
+      (exec {:command-args [(str nik-home "/bin/native-image")
+                            "--no-fallback"
+                            "-H:+ReportExceptionStackTraces"
+                            "-H:ConfigurationFileDirectories=resources/native-image"
+                            "--module-path" (str nik-home "/jmods")
+                            "--add-modules" "javafx.controls,javafx.graphics,javafx.base"
+                            "--initialize-at-run-time=javafx,com.sun.javafx,com.sun.glass,com.sun.prism,com.sun.scenario"
+                            "-H:Name=target/dataset-01-desktop"
+                            "-jar" (:uber-file opts)]}
+            "Desktop native image build failed")
+      opts)))

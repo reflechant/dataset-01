@@ -21,4 +21,33 @@
                       :exec-fn container-scratch}
   :container-distroless {:deps {io.github.clojure/tools.build {:mvn/version "0.10.14"}}
                          :ns-default build
-                         :exec-fn container-distroless}}}
+                         :exec-fn container-distroless}
+  :desktop {:extra-deps {cljfx/cljfx {:mvn/version "1.10.362"
+                                      :exclusions [org.openjfx/javafx-controls
+                                                   org.openjfx/javafx-graphics
+                                                   org.openjfx/javafx-base
+                                                   org.openjfx/javafx-media
+                                                   org.openjfx/javafx-web]}
+                         org.openjfx/javafx-controls {:mvn/version "21.0.12" :mvn/classifier "linux"}
+                         org.openjfx/javafx-graphics {:mvn/version "21.0.12" :mvn/classifier "linux"}
+                         org.openjfx/javafx-base {:mvn/version "21.0.12" :mvn/classifier "linux"}}
+            :main-opts ["-m" "reflechant.desktop"]}
+  :jfx-linux {:override-deps {org.openjfx/javafx-controls {:mvn/version "21.0.12" :mvn/classifier "linux"}
+                              org.openjfx/javafx-graphics {:mvn/version "21.0.12" :mvn/classifier "linux"}
+                              org.openjfx/javafx-base {:mvn/version "21.0.12" :mvn/classifier "linux"}}}
+  :jfx-mac {:override-deps {org.openjfx/javafx-controls {:mvn/version "21.0.12" :mvn/classifier "mac"}
+                            org.openjfx/javafx-graphics {:mvn/version "21.0.12" :mvn/classifier "mac"}
+                            org.openjfx/javafx-base {:mvn/version "21.0.12" :mvn/classifier "mac"}}}
+  :jfx-mac-aarch64 {:override-deps {org.openjfx/javafx-controls {:mvn/version "21.0.12" :mvn/classifier "mac-aarch64"}
+                                    org.openjfx/javafx-graphics {:mvn/version "21.0.12" :mvn/classifier "mac-aarch64"}
+                                    org.openjfx/javafx-base {:mvn/version "21.0.12" :mvn/classifier "mac-aarch64"}}}
+  :jfx-win {:override-deps {org.openjfx/javafx-controls {:mvn/version "21.0.12" :mvn/classifier "win"}
+                            org.openjfx/javafx-graphics {:mvn/version "21.0.12" :mvn/classifier "win"}
+                            org.openjfx/javafx-base {:mvn/version "21.0.12" :mvn/classifier "win"}}}
+  :native-desktop {:extra-deps {cljfx/cljfx {:mvn/version "1.10.362"
+                                             :exclusions [org.openjfx/javafx-controls
+                                                          org.openjfx/javafx-graphics
+                                                          org.openjfx/javafx-base
+                                                          org.openjfx/javafx-media
+                                                          org.openjfx/javafx-web]}}
+                   :main-opts ["-m" "reflechant.desktop"]}}}
